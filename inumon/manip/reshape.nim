@@ -70,7 +70,8 @@ proc reshapeUp(image: Image, width, height: int): Image =
                         result.data[(y*heightScale) + a, (x*widthScale) + b, c] = image.data[y, x, c]
 
 # The only reshape proc to be exported
-# Generalizes to reshape up or down on either axis
+## Reshape an image to any size using averaging for downscaling, and nearest neighbor for upscaling.
+## The target sizes must be a factor or multiple of the original size.
 proc reshape*(image: Image, width, height: int): Image =
     let imWidth = image.size.width
     let imHeight = image.size.height

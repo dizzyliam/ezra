@@ -11,7 +11,7 @@ proc generateUUID(): string =
     randomize()
     return intToStr(rand(999999999))
 
-# Shows an image to the user
+## Shows an image to the user, scaled for window size and zoom
 proc showImage*(image: coreTypes.Image) =
     app.init()
     let uuid = generateUUID()

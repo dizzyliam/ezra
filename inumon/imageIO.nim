@@ -4,7 +4,7 @@ import coreTypes
 import arraymancer
 import strutils
 
-# Proc to load a PNG image
+## Reads only PNG images given a filename.
 proc loadPNG*(fn: string): Image =
 
     var fp = open(fn)
@@ -57,7 +57,7 @@ proc loadPNG*(fn: string): Image =
 
     fp.close()
 
-# Writes an image to a png file
+## Writes an image object to a file.
 proc writePNG*(image: Image, fn: string) =
     let fp = open(fn, fmWrite)
 
@@ -102,7 +102,7 @@ proc writePNG*(image: Image, fn: string) =
     png_write_end(png_ptr, nil)
     fp.close()
 
-# Loads an image from a JPEG file (only supports RGB for now)
+## Reads only JPEG images given a filename.
 proc loadJPEG*(fn: string): Image =
     let fp = open(fn)
 
@@ -143,7 +143,7 @@ proc loadJPEG*(fn: string): Image =
     result.colorType = RGB
     result.bitDepth = 8
 
-# Writes an image to a JPEG given quality
+## Writes an image to a JPEG given quality (1-100).
 proc writeJPEG*(image: Image, fn: string, quality: int) =
 
     # Make sure it's a 3 channel (RGB) image
@@ -175,7 +175,7 @@ proc writeJPEG*(image: Image, fn: string, quality: int) =
     discard fp.writeBuffer(output, jpegSize.int)
     fp.close()
 
-# A convenience proc to infer image type
+## Read an image file (PNG or JPEG) to an Image object. Infers the image format before reading.
 proc loadImage*(fn: string): Image =
     let extension = fn.split('.')[^1]
     
