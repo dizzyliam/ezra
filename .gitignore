@@ -5,3 +5,4 @@ tests/testLoad
 tests/testJpeg
 tests/testScale
 tests/out.png
+tests/testColorConversion

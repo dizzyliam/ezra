@@ -1,2 +1,2 @@
-import inumon / [coreTypes, imageIO, gui, manip/reshape]
-export coreTypes, imageIO, gui, reshape
+import inumon / [coreTypes, imageIO, gui, manip/reshape, manip/color]
+export coreTypes, imageIO, gui, reshape, color

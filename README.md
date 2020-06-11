@@ -16,7 +16,7 @@
 - [X] Image display with *nigui*
 - Basic image transforms:
   - [X] Reshape/scale
-  - [ ] Change between color types (soon)
+  - [x] Change between color types
   - [ ] Hue/saturation/value (soon)
 
 ## Installation

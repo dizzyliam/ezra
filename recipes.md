@@ -40,3 +40,10 @@ let img = loadImage("image.png")
 img.reshape(toInt(img.size.width/2), img.size.height).showImage()
 ```
 *This only works if the target dimensions are factors of the source dimensions*
+
+## Convert an RGB image to grayscale
+```Nim
+
+let img = loadImage("image.png")
+img.RGBtoL().showImage()
+```
