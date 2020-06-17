@@ -4,6 +4,9 @@ import nimterop/[build, cimport]
 
 setDefines(@["pngStd"])
 
+const
+  baseDir = getProjectCacheDir("libpng") 
+
 static:
   cSkipSymbol(@["png_struct", "png_info"])
   cDebug()
@@ -14,6 +17,6 @@ cPlugin:
   proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
     sym.name = sym.name.strip(chars = {'_'}).replace("__", "_")
 
-getHeader("png.h")
+getHeader("png.h", giturl="https://github.com/glennrp/libpng", outdir=baseDir)
 
 cImport(pngPath, recurse=true, flags="-c -s")

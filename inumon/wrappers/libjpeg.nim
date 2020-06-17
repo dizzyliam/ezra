@@ -4,6 +4,9 @@ import nimterop/[build, cimport]
 
 setDefines(@["turbojpegStd"])
 
+const
+  baseDir = getProjectCacheDir("libjpeg") 
+
 cPlugin:
   import strutils
 
@@ -13,6 +16,6 @@ cPlugin:
     if sym.name in ["tjtransform"]:
         sym.name = "l_" & sym.name
 
-getHeader("turbojpeg.h")
+getHeader("turbojpeg.h", giturl="https://github.com/libjpeg-turbo/libjpeg-turbo", outdir=baseDir)
 
 cImport(turbojpegPath, recurse=true, flags="-c -s")
